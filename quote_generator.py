@@ -21,22 +21,22 @@ def afficher(text,position,taille,police,couleur):
 class App:
   def __init__(self):
     pygame.init()
-    self.size = (800, 600)
+    self.size = (800, 400)
     self.screen = pygame.display.set_mode(self.size)
     self.manager = pygame_gui.UIManager(self.size)
-    self.citation=''
+    self.citation='cliquer sur play'
     self.display_position=(400,120)
 
     self.play_button = UIButton(
-      relative_rect=pygame.Rect(350, 275, 150, 50),
+      relative_rect=pygame.Rect(300, 235, 150, 50),
       text='Play',
       manager=self.manager
     )
 
-    self.display_label=afficher(f'{self.citation}',self.display_position,10,'arial',(255,255,255))#couleur blanche
+    self.display_label=afficher(f'{self.citation}',self.display_position,20,'Comic Sans MS',(0, 0, 0))#couleur blanche
     self.screen.blit(self.display_label[0], self.display_label[1])
 
-    self.welcome_label=afficher('Quote Generator by Lesno',(400,50),40,'time new roman',(255,0,0))#couleur rouge
+    self.welcome_label=afficher('Quote Generator by Lesno',(400,50),40,'time new roman',(255, 15, 111))#couleur rouge
     self.screen.blit(self.welcome_label[0], self.welcome_label[1])
 
   def random_quote(self):
@@ -52,7 +52,7 @@ class App:
       if event.ui_element is self.play_button:
         quotes=self.random_quote()
         self.citation=f'{quotes[1]}\n {quotes[0]}'
-        self.display_label=afficher(f'{self.citation}',self.display_position,40,'arial',(255,255,255))#couleur blanche
+        self.display_label=afficher(f'{self.citation}',self.display_position,20,'Comic Sans MS',(0, 0, 0))#couleur blanche
         self.screen.blit(self.display_label[0], self.display_label[1])
 
   def run(self):
@@ -67,7 +67,7 @@ class App:
 
       self.manager.update(time_delta/1000)
 
-      pygame.draw.rect(self.screen, (0, 0, 0), pygame.Rect((0, 0), self.size))
+      pygame.draw.rect(self.screen, (174, 198, 207), pygame.Rect((0, 0), self.size))
 
       self.manager.draw_ui(self.screen)
 
