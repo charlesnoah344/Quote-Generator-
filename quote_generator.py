@@ -3,6 +3,8 @@ import pygame_gui
 import sys
 from pygame_gui.elements import UIButton, UITextEntryLine, UILabel
 from dataclasses import dataclass
+import json
+import random
 class App:
   def __init__(self):
     pygame.init()
@@ -18,14 +20,23 @@ class App:
     )
 
     self.display_label = UILabel(
-      relative_rect=pygame.Rect(350, 330, 150, 50),
+      relative_rect=pygame.Rect(350, 50, 150, 50),
       text='',
       manager=self.manager
     )
-
-
+  def random_quote(self):
+                with open('quotes.json') as file:
+                    content=file.read()
+                    content=json.loads(content)
+                    author=random.choice(list(content.keys()))
+                    quote=content[author]
+                    return (author, quote)
+                    
   def process_events(self, event: pygame.event.Event):
-    pass
+    if event.type == pygame_gui.UI_BUTTON_PRESSED:
+      if event.ui_element is self.play_button:
+        quotes=self.random_quote()
+        self.display_label.set_text(f'{quotes[1]}')
 
   def run(self):
     clock = pygame.time.Clock()
