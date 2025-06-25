@@ -21,14 +21,15 @@ def afficher(text,position,taille,police,couleur):
 class App:
   def __init__(self):
     pygame.init()
-    self.size = (800, 400)
+    self.size = (770, 400)
     self.screen = pygame.display.set_mode(self.size)
     self.manager = pygame_gui.UIManager(self.size)
     self.citation='cliquer sur play'
-    self.display_position=(400,120)
+    self.auteur=''
+    self.display_position=(400,150)
 
     self.play_button = UIButton(
-      relative_rect=pygame.Rect(300, 235, 150, 50),
+      relative_rect=pygame.Rect(330, 235, 150, 50),
       text='Play',
       manager=self.manager
     )
