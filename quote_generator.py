@@ -86,40 +86,44 @@ class App:
                     quote=content[author]
                     return (author, quote)
                     
-  def process_events(self, event: pygame.event.Event):
-    '''if event.type == pygame_gui.UI_BUTTON_PRESSED:
-      if event.ui_element is self.play_button:'''
-    if self.play_button(self.screen, self.play_button, "Clique-moi", self.font,
-                       idle_color=(70, 130, 180),
-                       hover_color=(100, 160, 210),
-                       text_color=(255, 255, 255),
-                       border_radius=12):
-        quotes=self.random_quote()
-        self.citation=f'{quotes[1]}\n {quotes[0]}'
-        self.display_label=afficher(f'{self.citation}',self.display_position,20,'Comic Sans MS',(0, 0, 0))#couleur blanche
-        self.screen.blit(self.display_label[0], self.display_label[1])
-
   def run(self):
-    clock = pygame.time.Clock()
-    while True:
-      time_delta = clock.tick(60)
-      for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-          sys.exit()
-        if not self.manager.process_events(event):
-          self.process_events(event)
+        clock = pygame.time.Clock()
+        running = True
 
-      self.manager.update(time_delta/1000)
+        while running:
+            time_delta = clock.tick(60)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
 
-      pygame.draw.rect(self.screen, (174, 198, 207), pygame.Rect((0, 0), self.size))
+                self.manager.process_events(event)
 
-      self.manager.draw_ui(self.screen)
+            self.manager.update(time_delta / 1000)
 
-      self.screen.blit(self.display_label[0], self.display_label[1])
+            # fond
+            self.screen.fill((174, 198, 207))
 
-      self.screen.blit(self.welcome_label[0], self.welcome_label[1])
+            # bouton
+            if draw_button(self.screen, self.play_button, "Play", self.font,
+                           idle_color=(70, 130, 180),
+                           hover_color=(100, 160, 210),
+                           text_color=(255, 255, 255),
+                           border_radius=12):
+                quotes = self.random_quote()
+                self.citation = f'{quotes[1]}\n- {quotes[0]}'
+                self.display_label=afficher(f'{self.citation}',self.display_position,20,'Comic Sans MS',(0, 0, 0))#couleur blanche
+                self.screen.blit(self.display_label[0], self.display_label[1])
+                
 
-      pygame.display.flip()
+            # labels
+            self.screen.blit(self.display_label[0], self.display_label[1])
+            self.screen.blit(self.welcome_label[0], self.welcome_label[1])
 
+            self.manager.draw_ui(self.screen)
+            pygame.display.flip()
 
-App().run()
+        pygame.quit()
+        sys.exit()
+
+if __name__ == "__main__":
+    App().run()
