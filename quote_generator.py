@@ -112,7 +112,6 @@ class App:
                 quotes = self.random_quote()
                 self.citation = f'{quotes[1]}\n- {quotes[0]}'
                 self.display_label=afficher(f'{self.citation}',self.display_position,20,'Comic Sans MS',(0, 0, 0))#couleur blanche
-                self.screen.blit(self.display_label[0], self.display_label[1])
                 
 
             # labels
