@@ -1,7 +1,7 @@
-# 🧠 Quote Generator
+#  Quote Generator
 
 Ce projet est une application graphique développée avec Pygame et Pygame GUI, permettant d’afficher aléatoirement des citations philosophiques célèbres, accompagnées de leur auteur.
-## 🎯 Objectif
+##  Objectif
 
 Permettre à l’utilisateur de générer des citations inspirantes et profondes issues des plus grands penseurs de l’histoire, dans une interface simple, visuelle et interactive.
 
@@ -9,26 +9,26 @@ Permettre à l’utilisateur de générer des citations inspirantes et profondes
 
 [Demo](https://youtu.be/juR5DtQ52aw)
 
-## 📁 Structure du projet
+##  Structure du projet
 
 .
 ├── quote_generator.py       # Script principal de l'application Pygame
 ├── quotes.json              # Base de données de citations (format JSON)
 
-## ⚙️ Installation et dépendances
+##  Installation et dépendances
 
 Avant de lancer le projet, assure-toi d’avoir installé les modules suivants :
 
 pip install pygame pygame_gui
 
-## ▶️ Lancer l'application
+##  Lancer l'application
 
 Lance simplement le fichier quote_generator.py :
 
 python quote_generator.py
 
 Une fenêtre s’ouvre avec un bouton Play. En cliquant dessus, une citation aléatoire s’affiche au centre de l’écran.
-📚 Contenu
+ Contenu
 
     quotes.json contient plus de 100 citations de philosophes (Socrate, Nietzsche, Kant, Camus, etc.), structurées sous la forme :
 
@@ -38,7 +38,7 @@ Une fenêtre s’ouvre avec un bouton Play. En cliquant dessus, une citation al�
   ...
 }
 
-## 🎨 Interface
+##  Interface
 
     Fond pastel (bleu clair)
 
@@ -48,7 +48,7 @@ Une fenêtre s’ouvre avec un bouton Play. En cliquant dessus, une citation al�
 
     Couleurs vives pour une meilleure lisibilité
 
-## 🛠 Fonctionnalités
+##  Fonctionnalités
 
     Génération aléatoire de citations à chaque clic sur le bouton Play
 
@@ -56,7 +56,7 @@ Une fenêtre s’ouvre avec un bouton Play. En cliquant dessus, une citation al�
 
     Affichage optimisé et stylisé avec Pygame
 
-## 🧩 À venir (idées d’amélioration)
+##  À venir (idées d’amélioration)
 
     Ajouter un bouton “Copier” pour copier la citation dans le presse-papiers
 
@@ -64,6 +64,6 @@ Une fenêtre s’ouvre avec un bouton Play. En cliquant dessus, une citation al�
 
     Ajouter un mode “citation du jour”
 
-## 👤 Auteur
+##  Auteur
 
 Projet réalisé par Lesno(Charles Noah) — pour apprendre Pygame et partager un peu de sagesse.
